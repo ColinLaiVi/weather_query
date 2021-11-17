@@ -1,0 +1,145 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+.container { 
+    width: 100%;
+    min-width: 861px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    position: relative;
+    background: linear-gradient(rgb(171, 235, 255),rgb(96, 84, 255) );
+}
+
+.guide {
+    width: 400px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    opacity: 0.8;
+}
+
+@media screen and (max-width: 1626px) {
+    .guide {
+        width: 200px;
+    }
+}
+
+.map {
+    path:hover {
+        fill: #b6fffb;
+    }
+}
+
+svg {
+    width: 800px;
+    height: 800px;
+}
+
+.weather-card {
+    width: 300px;
+    height: 500px;
+    margin: 72px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(rgb(200, 200, 200),rgb(83, 83, 83));
+    opacity: 0;
+    border-radius: 10px;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.651);
+    position: relative;
+    transition: opacity 1s;
+
+    .weatherImg {
+        width: 300px;
+        height: 100px;
+        object-fit: contain;
+    }
+
+    p {
+        font-weight: bold;
+    }
+
+    .ghost2 {
+        width: 25px;
+        height: 25px;
+        position: absolute;
+        top: -10px;
+        left: -5px;
+    }
+
+    .ghost {
+        width: 250px;
+        height: 187.5px;
+        position: absolute;
+        top: 80%;
+        left: 50%;
+    }
+
+    .close-btn {
+        width: 50px;
+        height: 50px;
+        background-color: rgb(143, 143, 143);
+        position: absolute;
+        top: 0;
+        right: 0;
+        border-radius: 10px;
+        transition: background-color 0.5s;
+
+        &:hover {
+            background-color: rgb(212, 212, 212);
+        }
+
+        span {
+            width: 40px;
+            height: 10px;
+            background-color: black;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+        }
+
+        .span1 {
+            transform: translate(-50%, -50%) rotate(45deg);
+        }
+
+        .span2 {
+            transform: translate(-50%, -50%) rotate(-45deg);
+        }
+    }
+}
+
+.display {
+    opacity: 0.8;
+}
+
+.wrap {
+    background: url(../img/雨アニメーション素材.gif);
+    background-size: cover;
+    background-position: center;
+}
+
+.wrap2 {
+    background: url(../img/桜吹雪素材.gif);
+    background-size: cover;
+    background-position: center;
+}
+
+footer {
+    background-color: rgb(228, 226, 255);
+
+    .cr {
+        margin: 0;
+        padding: 10px 0;
+        width: 100%;
+        text-align: center;
+    }
+}

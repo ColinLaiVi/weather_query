@@ -1,0 +1,170 @@
+@charset "UTF-8";
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.container {
+  width: 100%;
+  min-width: 861px;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  position: relative;
+  background: -webkit-gradient(linear, left top, left bottom, from(#abebff), to(#6054ff));
+  background: linear-gradient(#abebff, #6054ff);
+}
+
+.guide {
+  width: 400px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  opacity: 0.8;
+}
+
+@media screen and (max-width: 1626px) {
+  .guide {
+    width: 200px;
+  }
+}
+
+.map path:hover {
+  fill: #b6fffb;
+}
+
+svg {
+  width: 800px;
+  height: 800px;
+}
+
+.weather-card {
+  width: 300px;
+  height: 500px;
+  margin: 72px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: -webkit-gradient(linear, left top, left bottom, from(#c8c8c8), to(#535353));
+  background: linear-gradient(#c8c8c8, #535353);
+  opacity: 0;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.651);
+          box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.651);
+  position: relative;
+  -webkit-transition: opacity 1s;
+  transition: opacity 1s;
+}
+
+.weather-card .weatherImg {
+  width: 300px;
+  height: 100px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.weather-card p {
+  font-weight: bold;
+}
+
+.weather-card .ghost2 {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: -10px;
+  left: -5px;
+}
+
+.weather-card .ghost {
+  width: 250px;
+  height: 187.5px;
+  position: absolute;
+  top: 80%;
+  left: 50%;
+}
+
+.weather-card .close-btn {
+  width: 50px;
+  height: 50px;
+  background-color: #8f8f8f;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 10px;
+  -webkit-transition: background-color 0.5s;
+  transition: background-color 0.5s;
+}
+
+.weather-card .close-btn:hover {
+  background-color: #d4d4d4;
+}
+
+.weather-card .close-btn span {
+  width: 40px;
+  height: 10px;
+  background-color: black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.weather-card .close-btn .span1 {
+  -webkit-transform: translate(-50%, -50%) rotate(45deg);
+          transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.weather-card .close-btn .span2 {
+  -webkit-transform: translate(-50%, -50%) rotate(-45deg);
+          transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.display {
+  opacity: 0.8;
+}
+
+.wrap {
+  background: url(../img/雨アニメーション素材.gif);
+  background-size: cover;
+  background-position: center;
+}
+
+.wrap2 {
+  background: url(../img/桜吹雪素材.gif);
+  background-size: cover;
+  background-position: center;
+}
+
+footer {
+  background-color: #e4e2ff;
+}
+
+footer .cr {
+  margin: 0;
+  padding: 10px 0;
+  width: 100%;
+  text-align: center;
+}
+/*# sourceMappingURL=02-chun-weather-API.css.map */
