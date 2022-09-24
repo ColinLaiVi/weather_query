@@ -1,3 +1,12 @@
+//blue
+$lightBlue: #abebff;
+$darkBlue: #6054ff;
+//gray
+$lightGray:#c8c8c8;
+$darkGray:#535353;
+//hover
+$mapHover: #b6fffb;
+
 * {
     box-sizing: border-box;
 }
@@ -15,7 +24,7 @@ body {
     align-items: center;
     flex-wrap: wrap;
     position: relative;
-    background: linear-gradient(rgb(171, 235, 255),rgb(96, 84, 255) );
+    background: linear-gradient($lightBlue, $darkBlue);
 }
 
 .guide {
@@ -28,13 +37,15 @@ body {
 
 @media screen and (max-width: 1626px) {
     .guide {
-        width: 200px;
+        width: 240px;
     }
 }
 
 .map {
+    padding: 41px 0;
+
     path:hover {
-        fill: #b6fffb;
+        fill: $mapHover;
     }
 }
 
@@ -51,12 +62,19 @@ svg {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(rgb(200, 200, 200),rgb(83, 83, 83));
+    background: linear-gradient($lightGray, $darkGray);
     opacity: 0;
     border-radius: 10px;
-    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.651);
+    box-shadow: 0px 0px 25px #00000060;
     position: relative;
     transition: opacity 1s;
+
+    @media screen and (max-width: 1243px) {
+        position: absolute;
+        top: 200px;
+        left: calc(50% - 186px);
+        pointer-events: none;
+    }
 
     .weatherImg {
         width: 300px;
@@ -87,15 +105,15 @@ svg {
     .close-btn {
         width: 50px;
         height: 50px;
-        background-color: rgb(143, 143, 143);
+        background-color: $darkGray;
         position: absolute;
         top: 0;
         right: 0;
         border-radius: 10px;
-        transition: background-color 0.5s;
+        transition: background-color 0.3s;
 
         &:hover {
-            background-color: rgb(212, 212, 212);
+            background-color: white;
         }
 
         span {
@@ -119,6 +137,11 @@ svg {
 
 .display {
     opacity: 0.8;
+    pointer-events: visible;
+
+    @media screen and (max-width: 1243px) {
+        opacity: 1;
+    }
 }
 
 .wrap {
@@ -134,12 +157,12 @@ svg {
 }
 
 footer {
-    background-color: rgb(228, 226, 255);
+    width: 100%;
+    background-color: #e4e2ff;
 
     .cr {
         margin: 0;
         padding: 10px 0;
-        width: 100%;
         text-align: center;
     }
 }

@@ -10,9 +10,8 @@
 </head>
 
 <body>
-
     <div class="container">
-        <img class="guide" src="./img/20.png" data-tilt></img>
+        <img class="guide" src="./img/guide.png" data-tilt></img>
         <!-- SVG台灣地圖 -->
         <div class="map">
             <?xml version="1.0" encoding="utf-8"?>
@@ -82,11 +81,11 @@
         <!-- 天氣卡片 -->
         <div class="weather-card" data-tilt>
         </div>
-    </div>
 
-    <footer>
-        <p class="cr">© 2021 colinLai 僅供職業教育訓練使用</p>
-    </footer>
+        <footer>
+            <p class="cr">© 2021 colinLai 僅供職業教育訓練使用</p>
+        </footer>
+    </div>
 
     <!-- JavaScript -->
     <script>
@@ -94,21 +93,19 @@
         var container = document.querySelector('.container')
 
         // 點擊地區出現天氣卡片和輸入地區代碼
-        function show(num) {
-            weatherCard.classList.add('display')
-
+        async function show(num) {
             // 天氣資料串接
-            fetch('https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-B5282D9D-8FDD-40E9-AD48-B1DF3270465D')
+            await fetch('https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-B5282D9D-8FDD-40E9-AD48-B1DF3270465D')
                 .then(function (response) {
                     return response.json()
                 })
                 .then(function (weather) {
-                    var location = weather.records.location
-                    var place = location[num].locationName
-                    var report = location[num].weatherElement[0].time[0].parameter.parameterName
-                    var lowTemp = location[num].weatherElement[2].time[0].parameter.parameterName
-                    var hightTemp = location[num].weatherElement[4].time[0].parameter.parameterName
-                    var feeling = location[num].weatherElement[3].time[0].parameter.parameterName
+                    let location = weather.records.location
+                    let place = location[num].locationName
+                    let report = location[num].weatherElement[0].time[0].parameter.parameterName
+                    let lowTemp = location[num].weatherElement[2].time[0].parameter.parameterName
+                    let hightTemp = location[num].weatherElement[4].time[0].parameter.parameterName
+                    let feeling = location[num].weatherElement[3].time[0].parameter.parameterName
 
                     // 根據降雨機率調整圖片
                     if (location[num].weatherElement[1].time[0].parameter.parameterName <= 10) {
@@ -131,28 +128,30 @@
 
                     // 印出卡片內容
                     weatherCard.innerHTML =
-                        `
+                    `
                     <div class="close-btn">
                         <span class="span1"></span>
                         <span class='span2'></span>
                     </div>
-                    <img class="weatherImg" src="./img/${weatherImg}" alt="">
+                    <img class="weatherImg" src="./img/${weatherImg}" alt="${weatherImg}">
                     <H2>${place}</H2>
                     <p>天氣狀況 : ${report}</p>
                     <p>氣溫 : ${lowTemp}~${hightTemp}。c</p>
                     <p>體感狀況 : ${feeling}</p>
-                    <img class="ghost2" src="./img/(15).png" alt="">
-                    <img class="ghost" src="./img/(25).png" alt="">
+                    <img class="ghost2" src="./img/elf1.png" alt="">
+                    <img class="ghost" src="./img/elf2.png" alt="">
                     `
 
                     // 天氣卡片關閉
-                    var closeBtn = document.querySelector('.close-btn')
+                    let closeBtn = document.querySelector('.close-btn')
                     closeBtn.onclick = function () {
                         weatherCard.classList.remove('display')
                         container.classList.remove('wrap')
                         container.classList.remove('wrap2')
                     }
                 })
+
+                weatherCard.classList.add('display')
         }
     </script>
 
